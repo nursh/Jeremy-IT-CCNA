@@ -1,0 +1,33 @@
+# Network devices
+
+- What is a network
+  - a digital telecommunications network between nodes to share resources
+- What is a node
+  - eg router, switch, firewall, server, client(smart phone, pc, tablet)
+  - servers and clients sometimes are referred to as end hosts or endpoints
+- Client
+  - a device that accesses a service made available by a server
+- Server
+  - a device that provides functions or services for clients
+- Switch
+  - are used to forward traffic within a LAN(local area network)
+    - provide connectivity to hosts within the same LAN
+  - have many network interfaces/ports to connect end hosts to(usually 24+)
+  - do not provide connectivity between LANs or internet
+- Router
+  - eg ISR 1000, ISR 4000
+  - have fewer network interfaces
+  - used to provide connectivity between LANs
+  - used to send messages over the internet
+    - forward traffic between networks
+- Firewall
+  - eg ASA5500-X, Firepower 2100(both next gen)
+  - can be placed outside of network(between router and internet)
+  - can be place inside of network(between router and switch)
+  - they protect end hosts in the network
+  - monitor and control network traffic based on configured rules
+  - are known as 'Next-Generation Firewalls' when they include more modern and advanced filtering capabilities
+- Network firewalls
+  - hardware devices that filter traffic between networks
+- Host-base firewall
+  - software application that filter traffic entering and exiting a host machine eg PC 

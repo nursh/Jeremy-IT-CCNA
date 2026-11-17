@@ -1,0 +1,65 @@
+# IPv4 Addressing 
+
+- Layer 3 (Network layer)
+  - connect end host in different networks
+  - uses logical addressing(IP addresses)
+  - routers operate at Layer 3
+  - provides path between source and destination
+- switches expand networks
+  - they do not separate them
+- routers separate networks
+- routers need an IP address for each network it is connected to
+- IP addresses are 4 bytes in length(32 bits)
+  - eg. 192.168.1.256
+    - each digit represent 8 bits
+    - split into 4 octets
+- 192.168.1.254/24
+  - /24 - the network portion of the address
+    - how many bits are assigned to the network address
+  - the last octet is the host address
+- IPv4 address classes
+  - there 5 classes
+  - they are determined by the first octet
+  - class A
+    - the first octet begins with a 0
+    - 0xxx xxxx
+    - 0 - 127
+      - but 0 and 127 are reserved
+      - so it is actually 1 - 126
+      - the first octet then is 1xxx xxxx
+    - it uses /8 prefix
+    - 127 is reserved for loopback addresses
+      - 127.0.0.0 - 127.255.255.255
+      - used to test the network stack(TCP/IP model) on local device
+      - process a request like it was received from another device
+      - eg ping 127.0.0.1
+        - the round trip time will be 0, because the packet goes nowhere
+  - class B
+    - the first octec begins with with 10
+    - 10xx xxxx
+    - 128 - 191
+    - it uses /16 prefix
+  - class C - 110x xxxx
+    - 192 - 223
+    - it uses /24 prefix
+  - class D - 1110 xxxx
+    - 224 - 238
+    - for multicast address
+  - class E - 1111 xxxx
+    - 240 - 255
+    - reserved for experimental uses
+- Netmask
+  - used by old systems and Cisco
+  - class A: /8 -> 255.0.0.0
+  - class B: /15 -> 255.255.0.0
+  - class C: /8 -> 255.255.255.0
+- if all the values in the host portion is all 0's
+  - it is the network address
+    - 192.168.1.0/24
+      - this is the network address because it is 0 at the host
+    - it cannot be assigned to a host
+- if all the values in the host port is all 1's
+  - it is the broadcast address
+    - 192.168.1.255
+    - it cannot be assigned to a host
+  - it is the address used to send a message to all hosts in a local network

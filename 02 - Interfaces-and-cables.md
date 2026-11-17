@@ -1,0 +1,88 @@
+# Interfaces and Cables
+
+- interfaces are also known as ports
+- RJ-45(registered jack) connectors
+  - used at end of copper ethernet cables
+- Ethernet 
+  - collection of network protocol/standards
+- speed is measured in bits per second
+- Ethernet standards IEEE 802.3
+  - base-T -> baseband signaling
+    - T means twisted pair
+  - 100m in maximum length
+  - look at the copper ethernet standards
+- UTP cables - unshielded twisted pair
+  - vulnerable to electromagnetic interference
+  - the twisting helps protect against the interference
+- 2 wires
+  - 10baseT
+  - 100baseT
+  - Full-Duplex
+    - receive and transmit data at the same time
+    - but no collision occur
+  - Network interface setting
+    - connect PC, server and router to switch
+    - pin 1 and 2
+      - on PC, server and router transmit data(Tx)
+      - on switch, it receives data(Rx)
+    - pin 3 and 6
+      - on switch, it transmit data(Tx)
+      - on PC, router and server receive data(Rx)
+    - uses straight through cable(also called patch cable)
+      - pin 1 to pin 1, pin 2 to pin 2 and so on
+  - when you want to connect 2 routers, 2 switches or a PC to another PC or PC to a router
+    - you have to be careful because they use the same pins to receive and the same to transmit
+    - use a crossover cable instead of straight-through cable
+      - pin 1 to pin 3
+      - pin 2 to pin 6
+      - this allows them to crossover and communicate
+      - for connecting devices of the same king
+  - Transmit pins
+    - router, firewall and pc use pin 1 and 2
+    - switch uses 3 and 6
+  - receive pins
+    - router, firewall and pc use pin 3 and 6
+    - switch uses 1 and 2
+  - Auto-MDIX
+    - this allows a device to bypass the limitations of using patch cables when connecting same devices
+    - the device can detect what pins the other device is transmitting with and then adjusts it transmit and receive pins accordingly
+- 4 wires
+  - 1000baseT
+  - 10GbaseT
+  - each pair of the wire is bidirectional
+    - receive and transmit at the same time
+- Fiber optic connections
+  - SFP transceiver - small form-factor pluggable
+  - has 2 wires in fibre optic
+    - Tx ------ Rx
+    - Rx ------ Tx
+  - parts
+    - fibre glass
+    - cladding
+    - protective buffer
+    - outer jacket
+  - types
+    - single mode
+      - core is narrower than multimode
+      - light enters at a single angle from a laser-based transmitter
+      - longer cables than both UTP and multimode fiber
+      - more expensive than multimode because of laser-base SFP
+    - multimode
+      - core is wider
+      - allow multiple angles
+      - cheaper than single mode
+      - uses led
+      - allows longer length wires than UTP but shorter than single mode
+  - look at fiber-optic cable standards
+- utp 
+  - lower cost that fiber optic
+  - shorter maximum distance than fiber optic
+  - can be vulnerable to EMI
+  - RJ45 ports are cheaper than SFP ports
+  - leak faint signal outside the cable which can be copied
+- fiber optic
+  - higher cost than UTP
+  - longer maximum distance than UTP
+  - SFP are more expensive than RJ45 ports
+  - does not emit any signal outside of the cable
+  - no vulnerability to EMI

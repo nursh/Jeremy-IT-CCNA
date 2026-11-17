@@ -1,0 +1,97 @@
+# TCP/IP model
+
+- there are other models
+  - like OSI model(7 layer)
+    - designed to replace TCP/IP but failed
+- protocol -> set of rules defining how data should be communicated between devices over a network
+  - the languages that computers use to communicate
+- standard -> an agreed upon specification that describes how a protocol or technology should work
+  - using vendor-neutral standards, devices of all types can communicate with each other
+- two organizations define standards
+  - IEEE
+    - develop many technologies used on LAN
+      - Ethernet(802.3)
+      - Wi-Fi(802.11)
+  - IETF
+    - open community that defines protocols used on the internet
+      - TCP, IP, UDP, HTTP, DNS
+    - publishes standards in documents called RFC(Request for comments)
+
+- some TCP/IP models use 4 layers, others use 5
+  - the ones that use 4 layers combine the last 2 layers into 1
+  - Application layer
+    - protocols for communication between application processes; create and interpret the data
+    - define how application processes format, send and interpret data
+    - protocols at this layer define message format and rules for specific tasks
+      - browsing -> HTTP(S)
+      - tranferring files -> FTP
+      - sending/receiving email -> SMTP, POP3
+    - only communication hosts include this data
+  - Transport layer
+    - provide end-to-end communication between application processes using port numbers
+    - process to process, service to service
+    - use port numbers to identify the processes on each host
+    - run mainly on communication hosts(PC and servers)
+    - protocols at this layer
+      - UDP
+      - TCP
+  - Internet layer(network)
+    - provide end-to-end communication between hosts across networks using IP addresses and routers
+      - from source to destination
+    - uses IP addresses to identify host in the network
+    - routers operate mainly at this layer, using the messages destination IP address to forward the message toward its final destination host
+    - protocols involved
+      - IP(IPv4, IPv6)
+      - ICMP(internet control message protocol)
+  - Local Network layer(data link)
+    - provide hop-to-hop delivery within a local network using MAC addresses and switches
+    - hop
+      - a step along the path between two devices
+      - from one router or host, to the next router or host in the path
+      - switches don't count, they only extend the local network, allowing multiple devices to connect
+    - it uses MAC addresse to identify interfaces
+    - protocols include Ethernet and Wi-Fi
+  - Physical layer
+    - send bits as electrical, optical or radio signal over the medium
+    - cables, connectors, signal levels and link speeds
+    - UTP cables, network interface cards(NIC), Wi-Fi radios and antennas, fibre optic cables
+    - usually combined with local network layer
+
+
+- names given to message for encapsulation/decapsulation process
+  - alternative names to message at each stage is called protocol data unit(PDU)
+  - the content of each PDU is called a payload
+  - data + layer 4 header is called
+    - segment for TCP
+    - datagram for UDP
+    - segment/datagram is layer 4 PDU(L4PDU)
+    - the payload is the application data
+  - segment/datagram +  layer 3 header is called a packet
+    - packet is layer 3 PDU(L3PDU)
+    - the payload is the segment/datagram
+  - packet + layer 2 header and trailer is called a frame
+    - which is sent over the wire
+    - frame is layer 2 PDU(L2PDU)
+    - the payload is the packet
+
+- adjacent-layer interaction
+  - each layer provides a service to the layer above it and is serviced by the layer below it
+  - layer  4 -> layer 5
+    - deliver data to the correct application using port numbers
+  - layer 3 -> layer 4
+    - deliver segments/datagrams to the correct destination using IP addresses
+  - layer 2 -> layer 3
+    - deliver packets to the next hop using MAC addresses
+  - layer 1 -> layer 2
+    - send and receive frames as electrical, optical or radio signals
+- same-layer interaction
+  - each layer communicates with the same layer on other devices
+  - application layer on one host sends data to the application layer on the other host
+  - a segment/datagram is addressed to the layer 4 port number of the correct application on the destination host
+  - a packet is addressed to the layer 3 IP address of the destination host
+  - a frame is addressed to the layer 2 MAC address of the next hop
+  - signals sent out of a physical port are received by a physical port on the connected device
+
+- each layer is modular
+  - it has its own job and provides a specific service to the layers above
+  - this allows the protocols at different layers to be switched without causing problems
